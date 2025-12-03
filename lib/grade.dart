@@ -8,8 +8,7 @@
 //     - 80점 이하는 C등급
 // - 출력 형태 : 이 학생의 점수는 [점수] 이며, 등급은 [등급]입니다!
 
-void main() {
-  int score = 84;
+void grade(int score) {
   String grade;
 
   if (score >= 90 && score <= 100) {
@@ -19,6 +18,9 @@ void main() {
   } else {
     grade = 'C등급';
   }
-
   print('이 학생의 점수는 $score 이며, 등급은 $grade 입니다!');
+}
+
+void main() {
+  grade(84);
 }
