@@ -11,9 +11,13 @@
 void grade(int score) {
   String grade;
 
-  if (score >= 90 && score <= 100) {
+  if(score < 0 || score > 100){
+    throw Exception("점수는 0 ~ 100 사이여야합니다.");
+  }
+
+  if (score >= 90) {
     grade = 'A등급';
-  } else if (score >= 80 && score <= 89) {
+  } else if (score >= 80) {
     grade = 'B등급';
   } else {
     grade = 'C등급';
