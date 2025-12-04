@@ -4,15 +4,36 @@ import 'dart:math';
 // [ 조건 ]
 // - 출력 형태  : 발급한 로또 번호 : [로또 번호 목록 전체]
 
-void lotto (){
-  Set<int> lottoNum = {};
+void lotto() {
+  Set<int> myLottoNum = {};
+  final List<int> lotto = [9, 19, 29, 35, 37, 38];
+  int count = 0;
 
-  while(lottoNum.length < 6){
-    lottoNum.add((Random().nextInt(46))+1);
+  while (myLottoNum.length < 6) {
+    myLottoNum.add((Random().nextInt(46)) + 1);
   }
-  
 
-  print(lottoNum);
+  myLottoNum.toList();
+
+  print("발급한 로또 번호 : ${myLottoNum.toList()}");
+
+  for (int myNum in myLottoNum) {
+    if (lotto.contains(myNum)) {
+      count++;
+    }
+  }
+
+  if (count > 5) { 
+    print("당첨 여부 : [1등]");
+  } else if (count == 4 ){
+    print("당첨 여부 : [2등]");
+  } else if (count == 3 ){
+    print("당첨 여부 : [3등]");
+  } else {
+    print("당첨 여부 : 당첨 실패!");
+  }
+
+
 }
 
 void main() {
