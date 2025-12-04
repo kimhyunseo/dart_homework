@@ -15,9 +15,13 @@ void cart (List<String> items) {
 
   int total = 0;
 
-  print('장바구니에 담긴 물품들의 전체 금액은 $total 원 입니다!');
+  for (String item in items){
+      total += priceList[item] ?? 0;
+  }
+
+  print('장바구니에 $total 원 어치를 담으셨네요 !');
 }
 
 void main() {
-  cart(["티셔츠", "바지", "모자", "티셔츠", "바지"]);
+  cart(["티셔츠", "바지", "모자", "티셔츠", "바지", "목도리"]);
 }

@@ -22,5 +22,5 @@ void grade(int score) {
 }
 
 void main() {
-  grade(84);
+  grade(100);
 }
