@@ -13,6 +13,11 @@
 // - 상품들의 총 가격이 2만원이 넘지 않은 경우
 //     - 해당 경우에는 따로 관련 내용을 출력 하지 않습니다!
 
+// - 1번과 2번 과정을 통해  계산된 최종 결제 금액을 계산하여 출력합니다.
+// - 할인이 적용된 경우, 할인 금액이 차감된 최종 금액을 출력해야 합니다!
+// [ 조건 ]
+// - 출력 형태 : 최종 결제 금액은 [금액]원입니다.
+
 void cart (List<String> items) {
   Map<String, int> priceList = {
     '티셔츠': 10000,
@@ -22,7 +27,7 @@ void cart (List<String> items) {
 
   int total = 0;
   double discount = 0;
-  bool discountMessage = false;
+  double discounted = 0;
 
   for (String item in items){
       total += priceList[item] ?? 0;
@@ -30,12 +35,12 @@ void cart (List<String> items) {
   
   if (total>=20000){
     discount = total * 0.1;
-    discountMessage = true;
+    discounted = total - discount;
   }
 
   print('장바구니에 $total 원 어치를 담으셨네요 !');
-  if (discountMessage) {
-    print('할인 금액 : $discount 원');
+  if (discount != 0) {
+    print('할인 금액 : $discount 원 \n 최종 결제 금액은 $discounted 원입니다!');
   }
 }
 
