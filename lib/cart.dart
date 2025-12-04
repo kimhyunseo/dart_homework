@@ -6,6 +6,13 @@
 //     - 바지 : 8000원
 //     - 모자 : 4000원
 
+
+//  [ 조건 ]
+// - 상품들의 총 가격이 2만원이 넘은 경우
+//     - `할인 금액 : [1번에서 구한 가격의 10%]원` 을 출력합니다.
+// - 상품들의 총 가격이 2만원이 넘지 않은 경우
+//     - 해당 경우에는 따로 관련 내용을 출력 하지 않습니다!
+
 void cart (List<String> items) {
   Map<String, int> priceList = {
     '티셔츠': 10000,
@@ -14,14 +21,24 @@ void cart (List<String> items) {
   };
 
   int total = 0;
+  double discount = 0;
+  bool discountMessage = false;
 
   for (String item in items){
       total += priceList[item] ?? 0;
   }
+  
+  if (total>=20000){
+    discount = total * 0.1;
+    discountMessage = true;
+  }
 
   print('장바구니에 $total 원 어치를 담으셨네요 !');
+  if (discountMessage) {
+    print('할인 금액 : $discount 원');
+  }
 }
 
 void main() {
-  cart(["티셔츠", "바지", "모자", "티셔츠", "바지", "목도리"]);
+  cart(["티셔츠", "바지", "모자", "티셔츠", "바지"]);
 }
