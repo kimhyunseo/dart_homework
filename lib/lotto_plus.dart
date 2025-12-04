@@ -18,6 +18,7 @@ void plusLotto() {
   print("발급한 로또 번호 : ${myLottoNum.toList()}");
 
   // 2. 발급한 복권 번호를 지정된 당첨 번호와 비교하여 당첨 여부를 확인합니다.
+  // + 당첨이 되었을 때 어떤 번호가 당첨이 되었는지 같이 출력합니다.
 
   List<int> lottoNum = [];
 

@@ -11,7 +11,8 @@
 void grade(int score) {
   String grade;
 
-  if(score < 0 || score > 100){
+  // 예외상황 : 점수가 0~100 사이가 아닐 때
+  if (score < 0 || score > 100) {
     throw Exception("점수는 0 ~ 100 사이여야합니다.");
   }
 
