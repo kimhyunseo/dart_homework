@@ -20,7 +20,3 @@ void grade(int score) {
   }
   print('이 학생의 점수는 $score 이며, 등급은 $grade 입니다!');
 }
-
-void main() {
-  grade(100);
-}

@@ -1,8 +1,10 @@
 import 'dart:math';
 
-// - 1~45사이의 숫자들 중 6개의 숫자를 중복없이 뽑아 하나의 복권(리스트)으로 만듭니다.
-// [ 조건 ]
-// - 출력 형태  : 발급한 로또 번호 : [로또 번호 목록 전체]
+// 가상의 복권 프로그램을 만들어봅니다.
+
+// 1. 1~45까지의 숫자중 중복되지 않게 6개의 번호를 뽑아 1장의 복권을 발급합니다.
+// 2. 발급한 복권 번호를 지정된 당첨 번호와 비교하여 당첨 여부를 확인합니다.
+// 3. 다음 당첨 조회를 위해 복권 번호를 초기화합니다.
 
 void lotto() {
   Set<int> myLottoNum = {};
@@ -23,19 +25,17 @@ void lotto() {
     }
   }
 
-  if (count > 5) { 
+  if (count > 4) {
     print("당첨 여부 : [1등]");
-  } else if (count == 4 ){
+  } else if (count == 4) {
     print("당첨 여부 : [2등]");
-  } else if (count == 3 ){
+  } else if (count == 3) {
     print("당첨 여부 : [3등]");
   } else {
     print("당첨 여부 : 당첨 실패!");
   }
 
+  myLottoNum.clear();
 
-}
-
-void main() {
-  lotto();
+  print("발급한 로또 번호 : ${myLottoNum.toList()}");
 }

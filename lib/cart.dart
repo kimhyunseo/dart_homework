@@ -1,22 +1,8 @@
-// - 구매자의 장바구니에 담겨 있는 물품들의 전체 금액을 계산합니다.
+// 가상의 쇼핑몰에서 결제 금액을 계산하는 프로그램을 만들어봅니다.
 
-// [ 조건 ]
-// - 현재 가게에서 판매하고 있는 상품들과 각각의 가격은 다음과 같습니다.
-//     - 티셔츠 : 10000원
-//     - 바지 : 8000원
-//     - 모자 : 4000원
-
-
-//  [ 조건 ]
-// - 상품들의 총 가격이 2만원이 넘은 경우
-//     - `할인 금액 : [1번에서 구한 가격의 10%]원` 을 출력합니다.
-// - 상품들의 총 가격이 2만원이 넘지 않은 경우
-//     - 해당 경우에는 따로 관련 내용을 출력 하지 않습니다!
-
-// - 1번과 2번 과정을 통해  계산된 최종 결제 금액을 계산하여 출력합니다.
-// - 할인이 적용된 경우, 할인 금액이 차감된 최종 금액을 출력해야 합니다!
-// [ 조건 ]
-// - 출력 형태 : 최종 결제 금액은 [금액]원입니다.
+// 1. 구매자가 장바구니에 담은 상품들의 전체 금액을 계산합니다.
+// 2. 총 금액이 20,000원 이상일 경우, 10% 할인을 적용합니다.
+// 3. 최종적으로 구매자가 결제해야 하는 금액을 출력합니다.
 
 void cart (List<String> items) {
   Map<String, int> priceList = {
@@ -29,27 +15,26 @@ void cart (List<String> items) {
   double discount = 0;
   double discounted = 0;
 
-  for (String item in items){
-      total += priceList[item] ?? 0;
-  }
+  // 1. 구매자가 장바구니에 담은 상품들의 전체 금액을 계산합니다.
 
   // for (String item in items){
-  //     if(priceList.containsKey(item)){
-  //       total += priceList[item]!;
-  //     };
+  //     total += priceList[item] ?? 0;
   // }
+
+  for (String item in items){
+      if(priceList.containsKey(item)){
+        total += priceList[item]!;
+      };
+  }
   
   if (total>=20000){
     discount = total * 0.1;
     discounted = total - discount;
   }
 
-  print('장바구니에 $total 원 어치를 담으셨네요 !');
+  // 3. 최종적으로 구매자가 결제해야 하는 금액을 출력합니다.
+  print('장바구니에 $total원 어치를 담으셨네요 !');
   if (discount != 0) {
-    print('할인 금액 : $discount 원 \n 최종 결제 금액은 $discounted 원입니다!');
+    print('할인 금액 : ${discount.toInt()}원 \n 최종 결제 금액은 ${discounted.toInt()} 원입니다!');
   }
-}
-
-void main() {
-  cart(["티셔츠", "바지", "모자", "티셔츠", "바지"]);
 }
