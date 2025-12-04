@@ -1,6 +1,7 @@
 import 'package:dart_homework/cart.dart';
 import 'package:dart_homework/grade.dart';
 import 'package:dart_homework/lotto.dart';
+// import 'package:dart_homework/lotto_plus.dart';
 
 void main () {
   try {
@@ -16,4 +17,7 @@ void main () {
 }
   print("----------------");
   lotto();
+
+  // 기능 추가 로또
+  // plusLotto();
 }

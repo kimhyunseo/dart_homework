@@ -25,14 +25,8 @@ void cart(List<String> items) {
 
   // 1. 구매자가 장바구니에 담은 상품들의 전체 금액을 계산합니다.
 
-  // for (String item in items){
-  //     total += priceList[item] ?? 0;
-  // }
-
   for (String item in items) {
-    if (priceList.containsKey(item)) {
-      total += priceList[item]!;
-    }
+    total += priceList[item]!;
   }
 
   if (total >= 20000) {
@@ -47,8 +41,6 @@ void cart(List<String> items) {
       '할인 금액 : ${discount.toInt()}원 \n 최종 결제 금액은 ${discounted.toInt()} 원입니다!',
     );
   } else {
-     print(
-      '최종 결제 금액은 ${total.toInt()} 원입니다!',
-    );
+    print('최종 결제 금액은 ${total.toInt()} 원입니다!');
   }
 }
