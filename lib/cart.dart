@@ -32,6 +32,12 @@ void cart (List<String> items) {
   for (String item in items){
       total += priceList[item] ?? 0;
   }
+
+  // for (String item in items){
+  //     if(priceList.containsKey(item)){
+  //       total += priceList[item]!;
+  //     };
+  // }
   
   if (total>=20000){
     discount = total * 0.1;
