@@ -46,5 +46,9 @@ void cart(List<String> items) {
     print(
       '할인 금액 : ${discount.toInt()}원 \n 최종 결제 금액은 ${discounted.toInt()} 원입니다!',
     );
+  } else {
+     print(
+      '최종 결제 금액은 ${total.toInt()} 원입니다!',
+    );
   }
 }
